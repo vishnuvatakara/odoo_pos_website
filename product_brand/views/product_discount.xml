@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="pos_session_form_view" model="ir.ui.view">
+        <field name="name">pos.session.form.view.inherit</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stop_at']" position="after">
+                <field name="discount_limit_enable"/>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="pos_config_view_form">
+        <field name="name">point_of_sale.pos_config.view.form.inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='pricing']" position="after">
+                <label for="apply_discount_limit"/>
+                <div class="text-muted">Apply Discount Limit To</div>
+                    <field name="apply_discount_limit">
+                        <tree editable="bottom">
+                            <field name="category_id"/>
+                            <field name="discount"/>
+                        </tree>
+                    </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

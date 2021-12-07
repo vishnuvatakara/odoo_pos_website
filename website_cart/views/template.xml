@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="clear_cart" inherit_id="website_sale.cart" customize_show="True" name="Clear Cart Button"
+              priority="32">
+        <xpath expr="//*[starts-with(@href,'/shop/checkout')]" position="before">
+
+            <a href="/shop/clear_cart" id="clear_cart_button" class="btn btn-secondary mb32 d-none d-xl-inline-block" >
+                <span
+                        class="fa fa-trash-o"
+                />
+                Clear Cart
+            </a>
+
+        </xpath>
+    </template>
+
+</odoo>
